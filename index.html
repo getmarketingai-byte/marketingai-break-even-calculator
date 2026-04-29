@@ -636,6 +636,7 @@
 
 <script>
   function calculate() {
+    if (typeof gtag === "function") { gtag("event", "calculator_submit", {calculator_name: "break_even_calculator", page_title: document.title}); }
     const fixed = parseFloat(document.getElementById('fixedCosts').value);
     const variable = parseFloat(document.getElementById('variableCost').value);
     const price = parseFloat(document.getElementById('pricePerUnit').value);
@@ -726,6 +727,7 @@
     }).then(() => {
       document.getElementById('optinForm').style.display = 'none';
       document.getElementById('optinSuccess').style.display = 'block';
+      if (typeof gtag === "function") { gtag("event", "form_submit", {form_id: "early-access", page_title: document.title}); }
     }).catch(() => {
       document.getElementById('optinForm').style.display = 'none';
       document.getElementById('optinSuccess').style.display = 'block';
